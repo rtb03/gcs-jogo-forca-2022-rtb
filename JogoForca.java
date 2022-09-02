@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class JogoForca {
     public static void main (String[] args) {
@@ -7,6 +8,7 @@ public class JogoForca {
         System.out.println("===============");
 
         Scanner in = new Scanner(System.in);
+        Random rand = new Random();
 
         // Configurar jogo
         String[] bancoPalavras = {
@@ -18,7 +20,7 @@ public class JogoForca {
             "PESSEGO",
         };
 
-        int indicePalavraSorteada = 2;
+        int indicePalavraSorteada = rand.nextInt(bancoPalavras.length);
         int chancesRestantes = 10;
         String palavraSorteada = bancoPalavras[indicePalavraSorteada];
         int tamPalavraSorteada = palavraSorteada.length();
@@ -54,7 +56,7 @@ public class JogoForca {
             }
             
 			// Reduz nro de chances se letra digitada nao existir.
-            if (letraEncontrada) {
+            if (!letraEncontrada) {
                 chancesRestantes--;
             }
         }
@@ -66,5 +68,5 @@ public class JogoForca {
     }
 
 
-
+    
 }
